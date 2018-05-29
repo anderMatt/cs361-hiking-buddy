@@ -1,0 +1,27 @@
+{
+  "name": "cs361-hiking-buddy",
+  "version": "1.0.0",
+  "description": "Matthew Anderson",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anderMatt/cs361-hiking-buddy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anderMatt/cs361-hiking-buddy/issues"
+  },
+  "homepage": "https://github.com/anderMatt/cs361-hiking-buddy#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "forever": "^0.15.3",
+    "mysql": "^2.15.0"
+  }
+}
