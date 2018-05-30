@@ -1,5 +1,36 @@
-<div class="row">
-	The Registration Page!
+<div class="row text-center">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Register Hiking Buddy Account
+        </div>
+    </div>
+    <div class="panel-body text-center">
+        <form id="registerUser">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="first_name">Username: </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="username" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="password">Password: </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                </div>
+            </div>
+            <button id="registrationSubmit" type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+  </div>
 </div>
 
-<!-- script -- >
+<script src="/scripts/registration_page.js" />

@@ -2,6 +2,7 @@
 // Add routes to the app.
 
 const express = require("express");
+const User = require('./model/User');
 
 module.exports.init = function(app) {
 	console.log("Initializing routes");
@@ -31,6 +32,18 @@ module.exports.init = function(app) {
 
      	var user = {firstName: "John", lastName: "Smith", id: id};
      	return res.status(200).json(user);
+     });
+
+     apiRoutes.post('/users/register', function(req, res, next) {
+         console.log('Inside user registration endpoint');
+         var newUser = req.body;
+         User.register(newUser, function(err, insertId) {
+             if(err) {
+                 return next(err);
+             }
+             return res.status(200)
+                 .json(insertId);
+         });
      });
 
 
