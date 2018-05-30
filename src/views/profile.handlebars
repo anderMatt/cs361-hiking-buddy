@@ -1,0 +1,21 @@
+<div class="row">
+        The Profile Page!
+</div>
+<h1>REMEMBER TO UN-HARDCODE THE PROFILE NUMBER</h1>
+<h1>REMEMBER TO FIX THE 'UPDATE MY PROFILE' BUTTON</h1>
+<h1>REMEMBER TO FIX THE BANNER IN THE TOP LEFT CORNER</h1>
+<form id="updateprofile">
+  <strong>Name:</strong> {{name}} <br>
+  <strong>Weight (lbs):</strong> <input type="number" value={{weight}}> <br>
+  <strong>Height (inches):</strong> <input type="number" value={{height}}> <br>
+  <strong>Hiking Experience Level:</strong> 
+    <select value={{experience}}>
+      <option value="novice">novice</option>
+      <option value="intermediate">intermediate</option>
+      <option value="advanced">advanced</option>
+      <option value="expert">expert</option>
+    <select> <br>
+  <input type="submit" value="Update My Profile">
+</form>
+ 
+<!-- script -- >

@@ -16,7 +16,14 @@ module.exports.init = function(app) {
 		return res.type("text/html").render("registration", context);
 	});
 
-
+	app.get("/profile/:id", function(req, res, next) {
+		var context = {};
+		context.name = "John Smith";
+		context.weight = 160;
+		context.height = 72;
+		context.experience = "novice";
+		return res.type("text/html").render("profile", context);
+	});
 
     /**************************************************
      * API methods for altering tables and getting dynamic
