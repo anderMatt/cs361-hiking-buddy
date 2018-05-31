@@ -11,6 +11,10 @@ module.exports.init = function(app) {
     /**************************************************
      * View endpoints
      **************************************************/
+    app.get("/", function(req, res, next) {
+        return res.type("text/html").render("welcome");
+    });
+
 	app.get("/registration", function(req, res, next) {
 		var context = {};
 		context.name = "Test Name";
