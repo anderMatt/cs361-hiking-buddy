@@ -78,8 +78,10 @@ console.log("SELECT public FROM trek WHERE id = " + params);
 /////////////////////////////////////////////////////////////////////////////////////
 //	POTENTIAL ERROR HERE (not positive what to pass the callback)
 /////////////////////////////////////////////////////////////////////////////////////
-console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": " + JSON.stringify(results));
-        callback(null, results);
+//console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": " + JSON.stringify(results[0].public));
+	var privacy = results[0].public;
+console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": " + JSON.stringify(privacy));
+        callback(null, privacy);
     });
 };
 

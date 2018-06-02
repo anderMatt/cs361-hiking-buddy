@@ -43,7 +43,7 @@
 	    data: id,
 	    async: false,
 	    success: function(data) {
-		result = data[0].public.data;
+		result = data;
 	    }
 	});
 
