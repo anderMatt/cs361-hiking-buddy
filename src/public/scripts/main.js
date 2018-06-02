@@ -16,4 +16,37 @@
             data: newUserData
         });
     };
+
+    // this is the api method responsible for changing the privacy settings of a 
+    // hike. Uses a put method to update the necessary information
+    HikingBuddyApi.prototype.toggleUser = function(value) {
+        var url = "/api/users/privacy";
+	return $.ajax({
+	    url: url,
+	    type: 'PUT',
+	    dataType: 'json',
+	    data: value
+	});
+    };
+
+    // this is the api method responsible for retrieving the privacy settings of a
+    // hike. Uses a get method to SELECT the correct information. Uses an async method
+    // and returns the appropriate info
+    HikingBuddyApi.prototype.getPrivacySettings = function(id) {
+        var url = "/api/treks/privacy";
+	var result = null;
+
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    dataType: 'json',
+	    data: id,
+	    async: false,
+	    success: function(data) {
+		result = data[0].public.data;
+	    }
+	});
+
+	return result;
+    };
 })(window);
