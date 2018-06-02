@@ -37,7 +37,7 @@ console.log("VALUE IN User.js: " + JSON.stringify(value));
     // not hold the values I expect it to
     var params = [value.val, value.id];
 
-console.log("PARAMS IN User.js: " + JSON.stringify(params));
+console.log("PARAMS IN User.js (toggle): " + JSON.stringify(params));
 
     // makes the query and logs any errors that come up
     db.query(query, params, function(err, results) {
@@ -59,6 +59,9 @@ User.prototype.privacySettings = function(id, callback) {
 
     // query that should select the appropriate hike
     var query = "SELECT public FROM trek WHERE id = ?";
+    var params = [id];
+
+console.log("PARAMS IN User.js (privacySettings): " + JSON.stringify(params));
 
     // makes the query and logs any errors that come up
     db.query(query, id, function(err, results) {
