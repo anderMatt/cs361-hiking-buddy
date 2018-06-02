@@ -19,6 +19,9 @@ User.prototype.register = function(newUser, callback) {
 };
 
 
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////
 //	PRETTY BIG ERROR HERE
 /////////////////////////////////////////////////////////////////////////////////////
@@ -85,6 +88,9 @@ console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": 
         callback(null, privacy);
     });
 };
+
+
+
 
 
 module.exports = new User();
