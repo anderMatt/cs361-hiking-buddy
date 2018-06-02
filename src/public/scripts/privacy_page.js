@@ -98,6 +98,10 @@ console.log("VALUE AFTER SUBMITTING: " + window.hikingBuddyApi.getPrivacySetting
 				// this will redirect the page back to the current trek once those pages have been
 				// integrated
 //				window.location.href = `/viewtrek/${value.val}`;
+				var url = "http://flip3.engr.oregonstate.edu:4121/viewtrek/" + value.id;				
+console.log("URL: " + url);
+//				window.location.href = http://flip3.engr.oregonstate.edu:4121/viewtrek/1
+				window.location.href = url;
 			})
 			// if the function failes, alert the user and re-enable the submit button
 			.fail(function(response) {
