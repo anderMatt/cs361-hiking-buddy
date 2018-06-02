@@ -32,19 +32,13 @@ $(document).ready(function() {
 		// current trek's public attribute. The checkboxStatus is then set equal to the returned value
 		checkboxStatus = window.hikingBuddyApi.getPrivacySettings(value);
 
-//		var replaced = $("body").html().replace('PLACEHOLDER','private');
-//		$("body").html(replaced);
 		$("div.placeholder").replaceWith("public");
-//$( "div.second" ).replaceWith( "<h2>New heading</h2>" );
 
 		// if the checkboxStatus was equal to 1, the hike is currently set to public. If this the case, 
 		// check the checkbox
 		if(checkboxStatus == 1) {
 			$('#checkboxToggle').prop('checked', true);
 			$("div.placeholder").replaceWith("public");
-
-//			var replaced = $("body").html().replace('PLACEHOLDER','public');
-//			$("body").html(replaced);
 		}
 	}
 
@@ -62,7 +56,7 @@ $(document).ready(function() {
 
 		// if the checkbox is checked, set the formData var to 1
 		if(checkbox.is(':checked')) {
-			formData = "0";
+			formData = "1";
 		}
 
 		// once again, getting the id of the current trek from the URL string

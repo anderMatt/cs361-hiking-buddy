@@ -51,6 +51,7 @@ console.log("UPDATE trek SET public = " + params[0] + " WHERE id = " + params[1]
 /////////////////////////////////////////////////////////////////////////////////////
 //	POTENTIAL ERROR HERE (not positive what to pass the callback)
 /////////////////////////////////////////////////////////////////////////////////////
+console.log("RESULTS FROM UPDATE trek SET public = " + params[0] + ": " + JSON.stringify(results));
         callback(null, results);
     });
 };
@@ -77,6 +78,7 @@ console.log("SELECT public FROM trek WHERE id = " + params);
 /////////////////////////////////////////////////////////////////////////////////////
 //	POTENTIAL ERROR HERE (not positive what to pass the callback)
 /////////////////////////////////////////////////////////////////////////////////////
+console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": " + JSON.stringify(results));
         callback(null, results);
     });
 };
