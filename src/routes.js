@@ -40,7 +40,7 @@ module.exports.init = function(app) {
      });
 
      apiRoutes.post('/users/register', function(req, res, next) {
-         console.log('Inside user registration endpoint');
+//         console.log('Inside user registration endpoint');
          var newUser = req.body;
          User.register(newUser, function(err, insertId) {
              if(err) {
@@ -53,8 +53,8 @@ module.exports.init = function(app) {
 
 // this route is intended to switch the treks from public to private and vice versa
      apiRoutes.put('/users/privacy', function(req, res, next) {
-          console.log('Inside privacy toggle endpoint');
-console.log(req.body);
+//        console.log('Inside privacy toggle endpoint');
+//console.log(req.body);
           var value = req.body;
           User.toggle(value, function(err, value) {
                if(err) {

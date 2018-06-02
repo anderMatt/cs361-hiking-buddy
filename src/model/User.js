@@ -28,7 +28,7 @@ User.prototype.toggle = function(value, callback) {
 
 // print statement to compare the value's contents here vs. the value's contents in the
 // privacy_page.js file
-console.log("VALUE IN User.js: " + JSON.stringify(value));
+//console.log("VALUE IN User.js: " + JSON.stringify(value));
 
     // query that should update the appropriate hike	
     var query = "UPDATE trek SET public = ? WHERE id = ?";
@@ -37,7 +37,9 @@ console.log("VALUE IN User.js: " + JSON.stringify(value));
     // not hold the values I expect it to
     var params = [value.val, value.id];
 
-console.log("PARAMS IN User.js (toggle): " + JSON.stringify(params));
+//console.log("PARAMS IN User.js (toggle): " + params);
+console.log("User.prototype.toggle query:");
+console.log("UPDATE trek SET public = " + params[0] + " WHERE id = " + params[1]);
 
     // makes the query and logs any errors that come up
     db.query(query, params, function(err, results) {
@@ -61,7 +63,9 @@ User.prototype.privacySettings = function(id, callback) {
     var query = "SELECT public FROM trek WHERE id = ?";
     var params = [id];
 
-console.log("PARAMS IN User.js (privacySettings): " + JSON.stringify(params));
+//console.log("PARAMS IN User.js (privacySettings): " + params);
+console.log("User.prototype.privacySettings query:");
+console.log("SELECT public FROM trek WHERE id = " + params);
 
     // makes the query and logs any errors that come up
     db.query(query, id, function(err, results) {

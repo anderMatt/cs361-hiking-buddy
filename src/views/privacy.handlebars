@@ -1,14 +1,19 @@
-<!--link rel="stylesheet" href="/styles/privacy.css"-->
+<link rel="stylesheet" type="text/css" href="/styles/privacy.css">
+
 <form id="updatePrivacy">
 	<div id="text">
 		<h3>Change Privacy Settings</h3>
 	</div>
 	<div id="toggle">
-		<input type="checkbox" id="checkboxToggle">
+		<label class="switch">
+			<input type="checkbox" id="checkboxToggle">
+			<span class="slider"></span>
+		</label>
 	</div>
 	<div id="button">
-		<button id="privacySubmit" type="submit">I'm Finished</button>
+		<button id="privacySubmit" type="submit">Update My Settings</button>
 	</div>
 </form>
 
 <script src="/scripts/privacy_page.js"></script>
+

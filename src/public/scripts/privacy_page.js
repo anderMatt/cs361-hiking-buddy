@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 		// if the checkbox is checked, set the formData var to 1
 		if(checkbox.is(':checked')) {
-			formData = "1";
+			formData = "0";
 		}
 
 		// once again, getting the id of the current trek from the URL string
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		value.id = id[0];
 
 // I believe the value variable is correct when displayed here
-console.log("VALUE IN privacy_page.js: " + JSON.stringify(value));
+//console.log("VALUE IN privacy_page.js: " + value);
 
 		// call the api function to update the table, passing in the value parameter
 		window.hikingBuddyApi.toggleUser(value)
