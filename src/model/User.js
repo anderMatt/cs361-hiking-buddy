@@ -8,7 +8,7 @@ function User(){}
 
 User.prototype.register = function(newUser, callback) {
     // WARNING: unique constraints need to be set on username.
-    var query = "INSERT INTO users SET ?";
+    var query = "INSERT INTO user SET ?";
     db.query(query, newUser, function(err, results) {
         if(err) {
             console.log("Error inserting new user: " + err);
