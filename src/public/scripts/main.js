@@ -29,6 +29,16 @@
 	});
     };
 
+    HikingBuddyApi.prototype.updateUserPassword = function(passwordChangeFormData) {
+        var url = "/api/users/password/update";
+        return $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: passwordChangeFormData
+        });
+    }
+
     // this is the api method responsible for retrieving the privacy settings of a
     // hike. Uses a get method to SELECT the correct information. Uses an async method
     // and returns the appropriate info

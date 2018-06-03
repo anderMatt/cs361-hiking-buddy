@@ -25,6 +25,10 @@ module.exports.init = function(app) {
 		return res.type("text/html").render("registration", context);
 	});
 
+	app.get("/changepassword", function(req, res, next) {
+	    return res.type("text/html").render("change_password");
+    });
+
 	app.get("/privacy/:id", function(req, res, next) {
 		var context = {};
 		context.name = "Test Name";
@@ -71,6 +75,11 @@ module.exports.init = function(app) {
                return res.status(200)
                     .json(value);
           });
+     });
+
+     apiRoutes.post('/users/password/update', function(req, res, next) {
+         console.log('Inside password change endpoint.');
+         return res.status(200).json({success: true});
      });
 
 // this route is intended to get the current value stored in the public attribute of the trek table
