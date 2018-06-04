@@ -59,4 +59,25 @@
 
 	return result;
     };
+
+    HikingBuddyApi.prototype.loginUser = function(formData) {
+        var url = "/api/existinguser/getId";
+        var result = null;
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        data: formData,
+        async: false,
+        success: function(data) {
+            result = data;
+        },  
+        error: function (xhr, ajaxOptions, thrownError) {
+            result = null;
+        }   
+    }); 
+
+    return result;
+    };
 })(window);
