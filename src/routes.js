@@ -15,16 +15,9 @@ module.exports.init = function(app) {
         return res.type("text/html").render("welcome");
     });
 
-
-
-
     app.get("/profile/:id", function(req, res, next) {
         return res.type("text/html").render("profile");
     });
-
-
-
-
 
 	app.get("/registration", function(req, res, next) {
 		var context = {};
@@ -42,6 +35,9 @@ module.exports.init = function(app) {
 		return res.type("text/html").render("privacy", context);
 	});
 
+    app.get("/login", function(req, res, next) {
+        return res.type("text/html").render("login");
+    }); 
 
     /**************************************************
      * API methods for altering tables and getting dynamic
@@ -100,6 +96,17 @@ module.exports.init = function(app) {
 	            .json(value);
 	  });
      });
+
+    apiRoutes.get('/existinguser/getId', function(req, res, next) {
+        User.getId(req.query, function(err, value) {
+            if(err) {
+                return next(err);
+            }   
+
+            return res.status(200)
+                .json(value);
+            }); 
+    }); 
 
     /**************************************************
     * Hook up API endpoints
