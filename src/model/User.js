@@ -89,8 +89,25 @@ console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": 
     });
 };
 
+User.prototype.getId = function(input, callback) {
+    var query = "SELECT id FROM user WHERE (username = ?) AND (password = ?)";
+    var params = [input.username, input.password];
 
+    db.query(query, params, function(err, results) {
+        if(err) {
+            console.log("Error fetching user ID: " + err);
+        return callback(err);
+        }   
 
+    var id = null;
+    var result = results[0];
 
+console.log("RESULT: " + JSON.stringify(result));
+    if(typeof result !== "undefined") {
+        id = results[0].id;
+    }   
+    callback(null, id);
+    }); 
+};
 
 module.exports = new User();
