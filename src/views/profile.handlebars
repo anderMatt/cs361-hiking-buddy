@@ -3,18 +3,29 @@
     <h3>My Profile</h3>
     <div class="list-group">
         <div class="list-group-item">
-        
+        <form>
+		<h4>Please Fill Out Your Profile:</h4>
 		<label for="weight">Enter weight: </label>
-    		<input id="weight" type="number" name="weight_field" value="150">
+    		<input id="weight" type="number" name="weight_field">
+		<br>
+		<label for="height_feet">Enter Height: feet: </label>
+		<input id="height_feet" type="number" name="height_feet" value="feet">
 
-		<label for="height">Enter Height: </label>
-		<input id="height" type="number" name="height_field" value="6">
+		<label for="height_inches">inches:</label>
+		<input id="height_inches" type="number" name="height_inches" value="inches">
+		<br>
 
 		<label for="experience">Enter Experience Level: </label>
-		<input id="experience" type="text" name="experience_field" value="novice">
 
+		
+  			<select name="experience">
+    			<option value="novice">Novice</option>
+    			<option value="Intermediate">Intermediate</option>
+    			<option value="Expert">Expert</option>
+  			</select>
+  			<br><br>
 
-    		<input type="submit" value="OK">
+    		<input type="submit" value="Submit">
 		</form>
 	  </div>
     </div>
