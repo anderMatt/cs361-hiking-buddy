@@ -15,9 +15,16 @@ module.exports.init = function(app) {
         return res.type("text/html").render("welcome");
     });
 
+
+
+
     app.get("/profile/:id", function(req, res, next) {
         return res.type("text/html").render("profile");
     });
+
+
+
+
 
 	app.get("/registration", function(req, res, next) {
 		var context = {};
