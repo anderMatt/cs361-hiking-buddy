@@ -13,7 +13,7 @@ $(document).ready(function() {
         var formData = userRegistrationForm.serialize();
         window.hikingBuddyApi.registerUser(formData)
             .done(function(newUserId) {
-                window.location.href(`/profile/${newUserId}`);
+                window.location.href =`/profile/${newUserId}`;
             })
             .fail(function(response) {
                 alert('Failed to register user! Error: ' + response.responseText);

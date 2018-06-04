@@ -16,9 +16,13 @@ module.exports.init = function(app) {
     });
 
 
+
+
     app.get("/profile/:id", function(req, res, next) {
         return res.type("text/html").render("profile");
     });
+
+
 
 
 
@@ -28,6 +32,15 @@ module.exports.init = function(app) {
 		return res.type("text/html").render("registration", context);
 	});
 
+	app.get("/changepassword", function(req, res, next) {
+	    return res.type("text/html").render("change_password");
+    });
+
+	app.get("/privacy/:id", function(req, res, next) {
+		var context = {};
+		context.name = "Test Name";
+		return res.type("text/html").render("privacy", context);
+	});
 
 
     /**************************************************
@@ -46,7 +59,7 @@ module.exports.init = function(app) {
      });
 
      apiRoutes.post('/users/register', function(req, res, next) {
-         console.log('Inside user registration endpoint');
+//         console.log('Inside user registration endpoint');
          var newUser = req.body;
          User.register(newUser, function(err, insertId) {
              if(err) {
@@ -57,6 +70,36 @@ module.exports.init = function(app) {
          });
      });
 
+// this route is intended to switch the treks from public to private and vice versa
+     apiRoutes.put('/users/privacy', function(req, res, next) {
+//        console.log('Inside privacy toggle endpoint');
+//console.log(req.body);
+          var value = req.body;
+          User.toggle(value, function(err, value) {
+               if(err) {
+                    return next(err);
+               }
+               return res.status(200)
+                    .json(value);
+          });
+     });
+
+     apiRoutes.post('/users/password/update', function(req, res, next) {
+         console.log('Inside password change endpoint.');
+         return res.status(200).json({success: true});
+     });
+
+// this route is intended to get the current value stored in the public attribute of the trek table
+     apiRoutes.get('/treks/privacy', function(req, res, next) {
+          console.log('getting the current privacy settings');
+	  User.privacySettings(req.query.id[0], function(err, value) {
+	       if(err) {
+	            return next(err);
+	       }
+	       return res.status(200)
+	            .json(value);
+	  });
+     });
 
     /**************************************************
     * Hook up API endpoints
