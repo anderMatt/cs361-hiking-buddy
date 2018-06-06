@@ -9,6 +9,8 @@ const routes = require ('./routes');
 const bodyParser = require('body-parser');
 const mysql = require('./dbcon.js');
 
+const session = require('express-session');
+
 // Initial configuration
 var app = express();
 app.engine('handlebars', handlebars.engine);
@@ -19,6 +21,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(__dirname + '/public'));
+app.use(session({
+    cookie: "_hikingbuddy",
+    secret: process.env.SESSION_SECRET || "mysecret123",
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
+}));
 
 /******************************
 Hook up routes.
