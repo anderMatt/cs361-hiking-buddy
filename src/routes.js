@@ -22,7 +22,6 @@ module.exports.init = function(app) {
             if(err) {
                 return res.status(418);
             }
-            console.log("REturnined user: " + user);
             context.user = user;
             return res.type("text/html").render("profile", context);
         });
