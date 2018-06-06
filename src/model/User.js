@@ -96,7 +96,7 @@ User.prototype.get = function(id, callback) {
             console.log("Error getting user: " + err);
             return callback(err);
         }
-        callback(null, results);
+        callback(null, results[0]);
     });
 };
 
