@@ -16,7 +16,16 @@ module.exports.init = function(app) {
     });
 
     app.get("/profile/:id", function(req, res, next) {
-        return res.type("text/html").render("profile");
+        console.log("ON PROFILE PAGE! pased id: " + req.params.id);
+        var context = {};
+        User.get(req.params.id, function(err, user) {
+            if(err) {
+                return res.status(418);
+            }
+            console.log("REturnined user: " + user);
+            context.user = user;
+            return res.type("text/html").render("profile", context);
+        });
     });
 
 	app.get("/registration", function(req, res, next) {
@@ -103,6 +112,7 @@ module.exports.init = function(app) {
                 return next(err);
             }   
 
+            req.session.userId = value;
             return res.status(200)
                 .json(value);
             }); 

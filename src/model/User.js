@@ -89,6 +89,17 @@ console.log("RESULTS FROM SELECT public FROM trek WHERE id = " + params[0] + ": 
     });
 };
 
+User.prototype.get = function(id, callback) {
+    var query = "SELECT * FROM user WHERE id = ?";
+    db.query(query, [id], function(err, results) {
+        if(err) {
+            console.log("Error getting user: " + err);
+            return callback(err);
+        }
+        callback(null, results);
+    });
+};
+
 User.prototype.getId = function(input, callback) {
     var query = "SELECT id FROM user WHERE (username = ?) AND (password = ?)";
     var params = [input.username, input.password];
