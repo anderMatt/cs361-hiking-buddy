@@ -17,7 +17,9 @@ module.exports.init = function(app) {
 
     app.get("/profile/:id", function(req, res, next) {
         console.log("ON PROFILE PAGE! pased id: " + req.params.id);
-        var context = {};
+        var context = {
+            userId: req.session.userId
+        };
         User.get(req.params.id, function(err, user) {
             if(err) {
                 return res.status(418);
